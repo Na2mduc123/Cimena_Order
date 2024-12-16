@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎥QUỶ ĂN TẠNG</title>
+    <link rel="stylesheet" href="../css/Avenger.css">
+</head>
+<body>
+    
+    <div class="phanthan">
+
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img src="../img/ty_700x1000.jpg" alt="Poster Phim">
+            </div>
+            <div class="movie-info">
+                <h1>Tên Phim: Quỷ Ăn Tạng</h1>
+                <p><strong>Thể loại:</strong> Kinh Dị</p>
+                <p><strong>Đạo diễn:</strong> Taweewat Wantha</p>
+                <p><strong>Thời lượng:</strong> 119 phút</p>
+                <p><strong>Thời gian chiếu:</strong> 24 tháng 4, 2024</p>
+                <p><strong>Ngôn ngữ:</strong>Tiếng Thái, Tiếng Việt (phụ đề)</p>
+                <p><strong>Diễn viên:</strong> 	 Nadech Kugimiya, Denise Jelilcha Kapaun, Mim Rattawadee Wongthong, Junior Kajbhunditt Jaidee, Friend Peerakrit, Phacharaboonyakiat</p>
+            </div>
+        </div>
+
+        <div class="movie-description">
+            <h2>Tóm tắt phim:</h2>
+            <p>
+                Phim Quỷ Ăn Tạng - Kinh Dị Thái Lan HD 2023 vào năm 1972, một sự việc kinh hoàng nhất đã xảy ra. Một cô gái trẻ ở một ngôi làng hẻo lánh ở tỉnh Kanchanaburi đã qua đời một cách bí ẩn. Khi nghe thấy một giọng nói dựng tóc gáy \"Tee Yod... Tee Yod...\" vang lên trong đêm. Sau khi Yak (Nadech Kugimiya) xuất ngũ, anh trở về phụ giúp gia đình theo lời của Hia Hang và bà Bunyen. Mẹ của Yak, có 5 người em trạc tuổi nhau gồm Yos, Yod, Yad, Yam và Yi Mọi chuyện phải kể từ lúc Yam (Mim Rattanawadee Wongthong) bị ốm thì những bí ẩn cũng bắt đầu xuất hiện. Yad (Denise Jelilcha) là người chứng kiến những sự việc tựa như một điềm báo. Nhưng vì còn trẻ, cô đã không suy nghĩ nhiều. Cho tới khi tình trạng của Yam dần xấu đi, với những biểu hiện khác lạ không thể giải đáp được. Và người ta tin rằng, Yam đã bị \"ma cà rồng\" nhập, nó ăn mòn nội tạng. Khiến cơ thể của Yam dần yếu đi. Cứ đêm xuống, là nghe thấy tiếng rên rỉ cùng với từ \"Tee Yod\". Dẫn đến một câu chuyện bí ẩn đầy ám ảnh, dù đã hơn 50 năm trôi qua nhưng vẫn khiến người nghe khiếp sợ.
+
+            </p>
+        </div>
+
+        <div class="movie-schedule">
+            <h2>Lịch chiếu:</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showSchedule('schedule-1')">
+                        <td>01/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-2')">
+                        <td>02/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-3')">
+                        <td>03/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="schedule-1" class="schedule-times">
+                <div class="time-btns" id="times-1"></div>
+            </div>
+            <div id="schedule-2" class="schedule-times">
+                <div class="time-btns" id="times-2"></div>
+            </div>
+            <div id="schedule-3" class="schedule-times">
+                <div class="time-btns" id="times-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cinema">
+            <h1>Đặt Ghế Xem Phim</h1>
+            <div class="seats" id="seats-container"></div>
+        </div>
+        <div class="ticket-info">
+            <h2>Thông Tin Vé</h2>
+            <p>Ngày: <span id="date"></span></p>
+            <p>Giờ: <span id="time"></span></p>
+            <p>Ghế đã chọn: <span id="selected-seats">None</span></p>
+            <p>Số lượng: <span id="selected-count">0</span></p>
+            <p>Giá mỗi vé thường: 50.000 VNĐ</p>
+            <p>Giá mỗi ghế đôi: 90.000 VNĐ</p>
+            <p>Tổng tiền: <span id="total-price">0</span> VNĐ</p>
+            <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+        </div>
+    </div>
+
+    <a href="../html/phimdangchieu.html"><button class="back-button" onclick="goBack()">Trở về</button></a>
+
+    <script src="../js/Avenger.js"></script>
+</body>
+</html>

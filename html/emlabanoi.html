@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎥EM LÀ BÀ NỘI CỦA ANH</title>
+    <link rel="stylesheet" href="../css/Avenger.css">
+</head>
+<body>
+    
+    <div class="phanthan">
+
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img src="../img/emlabanoi.jpg" alt="Poster Phim">
+            </div>
+            <div class="movie-info">
+                <h1>Tên Phim: Em Là Bà Nội Của Anh</h1>
+                <p><strong>Thể loại:</strong> Hài hước</p>
+                <p><strong>Đạo diễn:</strong> Phan Gia Nhật Linh</p>
+                <p><strong>Thời lượng:</strong> 137 phút</p>
+                <p><strong>Thời gian chiếu:</strong> 24 tháng 4, 2024</p>
+                <p><strong>Ngôn ngữ:</strong>Tiếng Việt (phụ đề)</p>
+                <p><strong>Diễn viên:</strong> 	Miu Lê, Ngô Kiến Huy, Hứa Vĩ Văn, Hari Won, Minh Đức, Thanh Nam, Thu Trang, Lều Phương Anh, Hồng Ánh, Đức Khuê</p>
+            </div>
+        </div>
+
+        <div class="movie-description">
+            <h2>Tóm tắt phim:</h2>
+            <p>
+                Chuyện phim xoay quanh bà Đại (NSƯT Minh Đức), bà già kiểu cách, khó tính, đặc biệt yêu thương cậu con trai độc nhất Quang (Đức Khuê) đang là giáo sư đại học. Nhưng tuổi xế chiều của bà không được yên ổn khi mâu thuẫn với con dâu (Hồng Ánh), với bạn bè, với quá khứ đầy sóng gió xưa kia cứ thế ập đến.  Trong lúc quẫn bách nhất, phép màu đột ngột xảy đến, biến bà Đại trở thành cô gái trẻ trung tuổi đôi mươi. Không lãng phí cơ hội trời cho, bà quyết định tận dụng từng khoảnh khắc của “giấc mơ đẹp” để hoàn thành nhiều tâm nguyện còn dang dở. Cô gái Thanh Nga (Miu Lê) xinh đẹp xuất hiện, làm đảo lộn cuộc sống của cậu ca sĩ nhạc rock nổi loạn Ngô Trí Tùng (Ngô Kiến Huy) - vốn chính là cháu bà Đại, nhà sản xuất âm nhạc đẹp trai Mạnh Đức (Hứa Vĩ Văn) và cả ông bạn già tên Bé (NSƯT Thanh Nam) lỡ yêu sâu đậm bà Đại từ thuở trẻ.
+
+            </p>
+        </div>
+
+        <div class="movie-schedule">
+            <h2>Lịch chiếu:</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showSchedule('schedule-1')">
+                        <td>01/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-2')">
+                        <td>02/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-3')">
+                        <td>03/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="schedule-1" class="schedule-times">
+                <div class="time-btns" id="times-1"></div>
+            </div>
+            <div id="schedule-2" class="schedule-times">
+                <div class="time-btns" id="times-2"></div>
+            </div>
+            <div id="schedule-3" class="schedule-times">
+                <div class="time-btns" id="times-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cinema">
+            <h1>Đặt Ghế Xem Phim</h1>
+            <div class="seats" id="seats-container"></div>
+        </div>
+        <div class="ticket-info">
+            <h2>Thông Tin Vé</h2>
+            <p>Ngày: <span id="date"></span></p>
+            <p>Giờ: <span id="time"></span></p>
+            <p>Ghế đã chọn: <span id="selected-seats">None</span></p>
+            <p>Số lượng: <span id="selected-count">0</span></p>
+            <p>Giá mỗi vé thường: 50.000 VNĐ</p>
+            <p>Giá mỗi ghế đôi: 90.000 VNĐ</p>
+            <p>Tổng tiền: <span id="total-price">0</span> VNĐ</p>
+            <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+        </div>
+    </div>
+
+    <a href="../html/phimdangchieu.html"><button class="back-button" onclick="goBack()">Trở về</button></a>
+
+    <script src="../js/Avenger.js"></script>
+</body>
+</html>

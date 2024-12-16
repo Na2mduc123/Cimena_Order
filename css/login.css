@@ -1,0 +1,93 @@
+body
+        {
+            width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+        .login 
+        {
+            background-color: #ffffff;
+            align-items: center;
+            border: 1px solid;
+            margin-top: 100px;
+            height: 350px;
+            border: 3px solid #4CAF50;  /* Viền có màu xanh lá */
+            border-radius: 8px;         /* Bo góc */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Bóng đổ nhẹ */
+        }
+        .pass
+        {
+            margin-left: 34px;
+        }
+        input
+        {
+            width: 40%;
+            height: 25px;
+            border-radius: 5px;
+        }
+        a
+        {
+            margin-bottom: 20px;
+        }
+        button
+        {
+            margin-top: 30px;
+            background-color: #4CAF50;  /* Màu nền */
+            color: white;               /* Màu chữ */
+            border: none;               /* Loại bỏ viền mặc định */
+            padding: 10px 25px;         /* Khoảng cách trong nút */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 8px;         /* Bo góc */
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover
+        {
+            background-color: #45a049;  /* Màu khi hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
+            transform: translateY(-2px); /* Tạo hiệu ứng nút nhấc lên */
+        }
+        button:active
+        {
+            background-color: #388e3c;  /* Màu khi nhấn */
+            transform: translateY(0);    /* Hạ nút trở lại */
+        }
+        h1
+        {
+            margin-bottom: 40px;
+            font-family: "Nunito", sans-serif;
+        }
+        .error-tooltip {
+            position: absolute;
+            background: #f44336;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.1s;
+            margin-left: -100px;
+        }
+        .error-tooltip.show {
+            opacity: 1;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

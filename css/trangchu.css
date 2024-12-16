@@ -1,0 +1,267 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #333;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #2b92fa;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  z-index: 1000;
+}
+.logo {
+  font-size: 30px;
+  margin-left: 100px;
+  font-weight: bold;
+  color: #fef9f9;
+  text-decoration: none;
+}
+.search-bar {
+  flex: 1;
+  margin: 0 200px;
+  display: flex;
+  align-items: center;
+}
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.nav-links {
+  display: flex;
+  gap: 15px;
+  position: relative;
+  left: -100px;
+  padding: 20px;
+}
+.nav-links a {
+  
+  border-radius: 3px;
+  padding-left: 30px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  position: relative;
+}
+.nav-links a:hover {
+  color: #e7e9eb;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 70%;
+  right: -70px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 10;
+}
+.dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+.dropdown a:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+.nav-links .account:hover .dropdown {
+  display: block;
+}
+.sub-nav {
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 30px;
+  background-color: #040404;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+.sub-nav a {
+  padding: 30px;
+  text-decoration: none;
+  color: #e7e3e3;
+  font-size: 16px;
+  cursor: pointer;
+}
+.phim
+{
+  top: 70px;
+  margin-left: 400px;
+  justify-content: center;
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+}
+.phim a
+{
+  padding: 30px;
+  text-decoration: none;
+  color: #e7e3e3;
+  font-size: 16px;
+  cursor: pointer;
+}
+.phim a:hover
+{
+  color: #007bff;
+}
+.sub-nav a:hover {
+  color: #007bff;
+}
+.section {
+  padding: 100px 20px 20px; /* Adjust padding to account for fixed header */
+}
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #007bff;
+}
+.section .items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.section .item {
+  width: calc(20% - 10px);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+}
+.section .item img {
+  width: 100%;
+  height: auto;
+}
+.section .item .info {
+  padding: 10px;
+}
+.section .item .info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+.section .item .info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.menu1{
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  top: 100px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:#333;
+  border-radius: 1px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.carousel-item {
+  flex: 0 0 calc(50% - 5px);
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+  transform: scale(1);
+  border-color: #007BFF;
+}
+
+.carousel-item img, .carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-item video {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel-item:hover video {
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.carousel-btn.left {
+  left: 15px;
+}
+
+.carousel-btn.right {
+  right: 15px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.carousel-dot {
+  
+  width: 8px;
+  height: 8px;
+  margin: -15px 3px;
+  background-color: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+  background-color: #007BFF;
+}

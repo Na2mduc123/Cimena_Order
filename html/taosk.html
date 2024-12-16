@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Sự kiện</title>
+    <link rel="stylesheet" href="../css/taosk.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Quản lý Sự kiện</h2>
+            <button class="sidebar-btn" onclick="showCreateEvent()">Tạo Sự kiện</button>
+            <button class="sidebar-btn" onclick="showEventList()">Sự kiện đã tạo</button>
+        </aside>
+        <main class="content">
+            <!-- Tạo sự kiện -->
+            <div id="create-event" class="content-section">
+                <h2>Tạo Sự kiện</h2>
+                <form id="event-form">
+                    <div class="form-group">
+                        <label for="event-name">Tên Sự kiện:</label>
+                        <input type="text" id="event-name" placeholder="Nhập tên sự kiện" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-time">Thời gian:</label>
+                        <input type="datetime-local" id="event-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="logo">Logo:</label>
+                        <input type="file" id="logo" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="banner">Ảnh nền (Banner):</label>
+                        <input type="file" id="banner" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="province">Tỉnh/Thành:</label>
+                        <select id="province" required onchange="loadDistricts(this.value)">
+                            <option value="">Chọn Tỉnh/Thành</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="district">Quận/Huyện:</label>
+                        <select id="district" required onchange="loadWards(this.value)">
+                            <option value="">Chọn Quận/Huyện</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ward">Phường/Xã:</label>
+                        <select id="ward" required>
+                            <option value="">Chọn Phường/Xã</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="detailed-address">Địa chỉ cụ thể:</label>
+                        <input type="text" id="detailed-address" placeholder="Số nhà, đường,..." required>
+                    </div>
+                    <button type="button" class="btn-primary" onclick="saveEvent()">Lưu Sự kiện</button>
+                </form>
+            </div>
+
+            <!-- Danh sách sự kiện đã tạo -->
+            <div id="event-list" class="content-section hidden">
+                <h2>Sự kiện đã tạo</h2>
+                <div id="event-status-buttons">
+                    <button class="btn-filter" onclick="filterEvents('pending')">Chờ duyệt</button>
+                    <button class="btn-filter" onclick="filterEvents('past')">Đã qua</button>
+                </div>
+                <ul id="event-items" class="event-list"></ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/taosk.js"></script>
+</body>
+</html>

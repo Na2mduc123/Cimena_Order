@@ -1,0 +1,346 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.phanthan {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.movie-header {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.movie-poster {
+    flex: 1;
+}
+
+.movie-poster img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.movie-info {
+    flex: 2;
+}
+
+.movie-info h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.movie-info p {
+    margin: 5px 0;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.movie-description {
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.movie-schedule {
+    margin-top: 20px;
+}
+
+.movie-schedule h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.schedule-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.schedule-times {
+    display: none;
+    margin-top: 10px;
+}
+
+.schedule-times.active {
+    display: block;
+}
+
+.time-btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.time-btns button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.time-btns button:hover {
+    background-color: #0056b3;
+}
+
+body {
+    body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+align-items: center;
+}
+
+}
+
+.container {
+display: flex;
+flex-direction: row;
+width: 80%;
+max-height: 90vh;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+background-color: white;
+border-radius: 8px;
+overflow: hidden;
+margin-left: 125px;
+}
+
+/* Nút trở về */
+.back-button {
+position: absolute;
+top: 10px;
+left: 10px;
+background-color: #3742fa;
+color: white;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+border-radius: 5px;
+font-size: 14px;
+}
+
+.back-button:hover {
+background-color: #273c75;
+}
+
+/* Khu vực ghế */
+.cinema {
+flex: 2;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px;
+border-right: 2px solid #ddd;
+background-color: #dff9fb;
+}
+
+h1 {
+color: #2c3e50;
+margin-bottom: 10px;
+}
+
+.seats {
+display: flex;
+flex-direction: column;
+gap: 15px;
+padding: 0;
+}
+
+.row, .double-row {
+display: grid;
+grid-template-columns: repeat(10, 1fr);
+gap: 10px;
+justify-content: center;
+}
+
+.double-row {
+grid-template-columns: repeat(5, 2fr);
+}
+
+.seat {
+width: 40px;
+height: 40px;
+background-color: #4b9bef;
+border-radius: 5px;
+cursor: pointer;
+transition: transform 0.2s ease;
+}
+
+.seat:hover {
+transform: scale(1.1);
+}
+
+.seat.double-seat {
+width: 85px;
+background-color: #3c68e0;
+}
+
+.seat.selected {
+background-color: #edba55;
+}
+
+.seat.occupied {
+background-color: #d63031;
+cursor: not-allowed;
+}
+
+/* Khu vực thông tin vé */
+.ticket-info {
+flex: 1;
+padding: 20px;
+background-color: #f1f2f6;
+text-align: center;
+}
+
+.ticket-info h2 {
+color: #2c3e50;
+margin-bottom: 20px;
+}
+
+.ticket-info p {
+font-size: 16px;
+margin: 10px 0;
+color: #34495e;
+}
+
+.ticket-info span {
+font-weight: bold;
+color: #2c3e50;
+}
+
+.book-button {
+width: 100%;
+padding: 10px;
+margin-top: 20px;
+background-color: #3742fa;
+color: white;
+border: none;
+cursor: pointer;
+font-size: 16px;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+.book-button:hover {
+background-color: #273c75;
+}
+
+
+
+
+
+
+#ticket-summary {
+margin-top: 20px;
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 8px;
+background-color: #f9f9f9;
+}
+
+
+
+
+
+
+
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px; /* Điều chỉnh chiều rộng theo nhu cầu */
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    width: calc(25% - 7.5px); /* Mỗi hình ảnh chiếm 25% chiều rộng trừ đi 10px khoảng cách */
+    margin-right: 10px; /* Khoảng cách giữa các hình ảnh */
+    height: auto;
+}
+
+.slider .slide:last-child {
+    margin-right: 0; /* Không có khoảng cách sau hình ảnh cuối cùng */
+}
+
+.muiten button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.muiten button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+p
+{
+    text-align: justify;
+}

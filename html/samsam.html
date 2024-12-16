@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎥SAMSAM</title>
+    <link rel="stylesheet" href="../css/Avenger.css">
+</head>
+<body>
+    
+    <!-- Phần thông tin phim -->
+    <div class="phanthan">
+        <!-- Header: Hình ảnh và thông tin chi tiết -->
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img src="../img/samsam.jpg" alt="Poster Phim">
+            </div>
+            <div class="movie-info">
+                <h1>Tên Phim: SAMSAM</h1>
+                <p><strong>Thể loại:</strong> Hoạt hình</p>
+                <p><strong>Đạo diễn:</strong> Tanguy de Kermel</p>
+                <p><strong>Thời lượng:</strong> 78 phút</p>
+                <p><strong>Thời gian chiếu:</strong> 24 tháng 4, 2019</p>
+                <p><strong>Ngôn ngữ:</strong> Tiếng Anh, Tiếng Việt (phụ đề)</p>
+                <p><strong>Diễn viên:</strong> Isaac Lobé-Lebel, Lior Chabbat, Jérémy Prévost, Sébastien Desjours</p>
+            </div>
+        </div>
+
+        <!-- Tóm tắt phim -->
+        <div class="movie-description">
+            <h2>Tóm tắt phim:</h2>
+            <p>
+                Nhóc tì siêu quậy Samsam có tất cả mọi thứ mà bao đứa trẻ trên hành tinh Sam đều mơ ước: bố mẹ là hai siêu anh hùng nổi tiếng, học tập ở một ngôi trường danh giá chuyên đào tạo các thế hệ siêu nhân tương lai, thậm chí Samsam còn có hẳn một đĩa bay riêng để vi vu khắp nơi khắp chốn. Thế nhưng, cậu bé lại không có chút siêu năng lực nào, hoàn toàn khác biệt với tất cả các thành viên trong gia đình cũng như bạn bè đồng trang lứa. Bố mẹ lo lắng, bè bạn trêu ghẹo, Samsam bắt đầu hành trình tới hành tinh Marth bí ẩn cùng người bạn mới Mega, quyết tâm tìm kiếm sức mạnh ẩn tiềm của bản thân mình.
+            </p>
+        </div>
+
+        <!-- Lịch chiếu -->
+        <div class="movie-schedule">
+            <h2>Lịch chiếu:</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showSchedule('schedule-1')">
+                        <td>01/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-2')">
+                        <td>02/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-3')">
+                        <td>03/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="schedule-1" class="schedule-times">
+                <div class="time-btns" id="times-1"></div>
+            </div>
+            <div id="schedule-2" class="schedule-times">
+                <div class="time-btns" id="times-2"></div>
+            </div>
+            <div id="schedule-3" class="schedule-times">
+                <div class="time-btns" id="times-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phần đặt ghế -->
+    <div class="container">
+        <div class="cinema">
+            <h1>Đặt Ghế Xem Phim</h1>
+            <div class="seats" id="seats-container"></div>
+        </div>
+        <div class="ticket-info">
+            <h2>Thông Tin Vé</h2>
+            <p>Ngày: <span id="date"></span></p>
+            <p>Giờ: <span id="time"></span></p>
+            <p>Ghế đã chọn: <span id="selected-seats">None</span></p>
+            <p>Số lượng: <span id="selected-count">0</span></p>
+            <p>Giá mỗi vé thường: 50.000 VNĐ</p>
+            <p>Giá mỗi ghế đôi: 90.000 VNĐ</p>
+            <p>Tổng tiền: <span id="total-price">0</span> VNĐ</p>
+            <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+        </div>
+    </div>
+
+    <a href="../html/phimdangchieu.html"><button class="back-button" onclick="goBack()">Trở về</button></a>
+
+    <script src="../js/Avenger.js"></script>
+</body>
+</html>

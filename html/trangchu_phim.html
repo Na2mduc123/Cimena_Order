@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rạp Chiếu Phim</title>
+    <link rel="stylesheet" href="../css/trangchu_phim.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <a href="../html/trangchu.php" class="logo0">MTN</a>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="">Mua vé</a></li>
+                    <li class="dropdown">
+                        <a href="#">Phim</a>
+                        <div class="dropdown-content">
+                            <div class="section">
+                                <h4><a href="../html/phimdangchieu.html">Phim đang chiếu</a></h4>
+                                
+                            </div>
+                            <div class="section">
+                                <h4><a href="../html/phimsapchieu.html">Phim sắp chiếu</h4>
+                                
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Thể loại</a>
+                        <div class="dropdown-content">
+                            <ul class="genres">
+                                <li><a href="#">Phim Kinh dị</a></li>
+                                <li><a href="#">Phim Tình cảm</a></li>
+                                <li><a href="#">Phim Khoa học - Viễn tưởng</a></li>
+                                <li><a href="#">Phim Thiếu nhi</a></li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Sự kiện</a>
+                        <div class="dropdown-content">
+                            <ul class="events">
+                                <li><a href="#">Ưu đãi</a></li>
+                                <li><a href="#">Phim hot</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </nav>
+            <div class="logo">
+                <a href="#">🎥 Rạp Chiếu Phim</a>
+            </div>
+        </div>
+        <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="slides">
+      <div class="slide"><img src="../img/1.jpg" alt="Image 1"></div>
+      <div class="slide"><img src="../img/2.jpg" alt="Image 2"></div>
+      <div class="slide"><img src="../img/3.jpg" alt="Image 3"></div>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const slideCount = document.querySelectorAll('.slide').length;
+    let currentIndex = 0;
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slideCount;
+      slides.style.transform = `translateX(-${currentIndex * 100}vw)`;
+    }, 5000); // 3000ms = 3 giây
+  </script>
+    </header>
+</body>
+</html>

@@ -1,0 +1,131 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.logo0 {
+    font-size: 30px;
+    margin-left: 100px;
+    font-weight: bold;
+    color: #fef9f9;
+    text-decoration: none;
+  }
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    /* font-weight: bold; */
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #f39c12;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    padding: 15px;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Genres and Events list styling */
+.genres, .events {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.genres li, .events li {
+    margin-bottom: 10px;
+}
+
+.genres a, .events a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.genres a:hover, .events a:hover {
+    color: #f39c12;
+}
+/* Slideshow styles */
+.slideshow-container {
+    position: relative;
+    width: 100vw; /* Chiếm toàn bộ chiều rộng */
+    height: 100vh; /* Chiếm toàn bộ chiều cao */
+    overflow: hidden;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%; /* Đảm bảo tất cả ảnh nằm trên một hàng */
+  }
+
+  .slide {
+    min-width: 100vw; /* Ảnh rộng bằng màn hình */
+    height: 100vh; /* Ảnh cao bằng màn hình */
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh phủ đầy khung mà không bị méo */
+  }
+a{
+    text-decoration: none;
+    
+}
+.login-btn{
+    color: #f9f9f9;
+    border: solid 1px #f9f9f9;
+    background-color: #f39c12;
+}
