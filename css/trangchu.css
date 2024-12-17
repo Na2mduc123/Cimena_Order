@@ -41,7 +41,8 @@ body {
   gap: 15px;
   position: relative;
   left: -100px;
-  padding: 20px;
+  /* border: #ccc solid 1px; */
+  padding: 10px;
 }
 .nav-links a {
   
@@ -58,8 +59,8 @@ body {
 .dropdown {
   display: none;
   position: absolute;
-  top: 70%;
-  right: -70px;
+  top: 80%;
+  right: -50px;
   background-color: #fff;
   border: 1px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -99,6 +100,9 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+.sub-nav a:hover {
+  color: #007bff;
+}
 .phim
 {
   top: 70px;
@@ -120,9 +124,6 @@ body {
 {
   color: #007bff;
 }
-.sub-nav a:hover {
-  color: #007bff;
-}
 .section {
   padding: 100px 20px 20px; /* Adjust padding to account for fixed header */
 }
@@ -141,7 +142,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
-  text-align: center;
+  /* text-align: center; */
   background-color: #fff;
 }
 .section .item img {
@@ -166,12 +167,13 @@ body {
   display: flex;
   justify-content: center;
   background-color: #333;
+  
 }
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 1300px;
-  top: 100px;
+  max-width: 1500px;
+  top: 90px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -264,4 +266,336 @@ body {
 
 .carousel-dot.active {
   background-color: #007BFF;
+}
+
+.special-events {
+  padding: 20px;
+  background-color: #333;
+}
+
+.special-events h2 {
+  font-size: 1.5em;
+  color: #f7f5f5;
+  margin-left: 7px;
+  
+}
+.event-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.event-list {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  gap: 20px;
+}
+
+.event-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-details {
+  padding: 15px;
+}
+
+.event-details h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.event-details p {
+  font-size: 0.9em;
+}
+
+.buy-ticket {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ff6b6b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.buy-ticket:hover {
+  background-color: #e55a5a;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.5em;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.left-btn {
+  left: 10px;
+}
+
+.right-btn {
+  right: 10px;
+}
+
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.special-events-section {
+  padding: 0px 0;
+  background-color: #333;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.section-title {
+  margin-left: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #fefdfd;
+  margin-top: 100px;
+}
+
+.events-grid-wrapper {
+  overflow: hidden;
+  position: relative;
+  max-width: 98%;
+  margin: 0 auto;
+}
+
+.events-grid {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.event-card {
+  flex: 0 0 33.333%;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  background-color: #797676;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.event-image img {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
+.event-info {
+  padding: 15px;
+}
+
+.event-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #faf9f9;
+  margin-bottom: 10px;
+}
+
+.event-date, .event-location {
+  font-size: 1.1rem;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.event-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.event-link:hover {
+  background-color: #0056b3;
+}
+
+.follow-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.follow-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.followers-count {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.prev-button, .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #79899b;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+
+}
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 0px;
+}
+
+.prev-button:hover, .next-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+footer {
+  background-color: #43485b;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-column a {
+  color: #8da4c0;
+  font-size: 14px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin: 10px 0;
+  color: white;
+}
+
+.footer-column ul li a {
+  
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.section1 a{
+  text-decoration: none;
+  color: #8e9499;
+  
+}
+.section1{
+  padding-bottom:10px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+body {      
+  opacity: 0; /* Bắt đầu với độ mờ = 0 */
+  transition: opacity 1s ease; /* Hiệu ứng fade-in và fade-out */
+}
+
+body.loaded {
+  opacity: 1; /* Trang hiện ra dần dần */
+}
+
+body.fade-out {
+  opacity: 0; /* Trang cũ mờ dần khi chuyển trang */
+}
+
+/* Icon đồng hồ cát */
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: #555;
+  display: none;
+  z-index: 9999;
+}
+
+/* Hiển thị loader khi đang tải */
+body.loading #loader {
+  display: block;
+}
+
+/* Hiệu ứng xoay */
+@keyframes spin {
+  0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+#loader {
+  animation: spin 2s linear infinite; /* Đồng hồ cát xoay 2 giây/lần */
 }

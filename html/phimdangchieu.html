@@ -24,6 +24,52 @@
                 position: absolute;
                 opacity: 0;
             }
+            
+            body {
+        
+            
+            opacity: 0; /* Bắt đầu với độ mờ = 0 */
+            transition: opacity 1s ease; /* Hiệu ứng fade-in và fade-out */
+        }
+
+        body.loaded {
+            opacity: 1; /* Trang hiện ra dần dần */
+        }
+
+        body.fade-out {
+            opacity: 0; /* Trang cũ mờ dần khi chuyển trang */
+        }
+
+        /* Icon đồng hồ cát */
+        #loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: #555;
+            display: none;
+            z-index: 9999;
+        }
+
+        /* Hiển thị loader khi đang tải */
+        body.loading #loader {
+            display: block;
+        }
+
+        /* Hiệu ứng xoay */
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        #loader {
+            animation: spin 2s linear infinite; /* Đồng hồ cát xoay 2 giây/lần */
+        }
         </style>
         <div class="wrapper">
             <div class="text-run">MTN Cimena là hệ thống rạp phim hiện đại, đáp ứng đủ nhu cầu xem phim cơ bản, với đầy đủ các thể loại phim, tiện ích thoải mái, mang đến trải nghiệm tuyệt vời cho khách hàng!</div>
@@ -238,6 +284,7 @@
                 </div>
            </div>
         </div>
-        
+        <div id="loader">⏳</div>
+        <script src="../js/phim.js"></script>
     </body>
 </html>

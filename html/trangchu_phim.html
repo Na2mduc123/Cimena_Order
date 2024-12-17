@@ -62,21 +62,35 @@
         <!-- Slideshow -->
   <div class="slideshow-container">
     <div class="slides">
-      <div class="slide"><img src="../img/1.jpg" alt="Image 1"></div>
-      <div class="slide"><img src="../img/2.jpg" alt="Image 2"></div>
-      <div class="slide"><img src="../img/3.jpg" alt="Image 3"></div>
+      <div class="slide"><img src="../img/cimena_tet.jpg" alt="Image 1" ></div>
     </div>
   </div>
 
+  <div id="loader">⏳</div>
   <script>
-    const slides = document.querySelector('.slides');
-    const slideCount = document.querySelectorAll('.slide').length;
-    let currentIndex = 0;
+      // Hiệu ứng hiện ra mượt mà của trang
+  document.addEventListener("DOMContentLoaded", () => {
+      // Thêm lớp 'loaded' để kích hoạt hiệu ứng fade-in
+      document.body.classList.add('loaded');
 
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % slideCount;
-      slides.style.transform = `translateX(-${currentIndex * 100}vw)`;
-    }, 5000); // 3000ms = 3 giây
+      // Lắng nghe sự kiện click vào liên kết
+      const links = document.querySelectorAll("a");
+
+      links.forEach(link => {
+          link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const href = link.getAttribute("href");
+
+              // Thêm hiệu ứng fade-out và hiển thị loader
+              document.body.classList.remove("loaded");
+              document.body.classList.add("fade-out", "loading");
+
+              setTimeout(() => {
+                  window.location.href = href; // Chuyển sang trang mới
+              }, 1000); // Trì hoãn để hiệu ứng hoàn tất
+          });
+      });
+  });
   </script>
     </header>
 </body>
