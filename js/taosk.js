@@ -65,41 +65,48 @@ async function loadWards(districtCode) {
 
 // Lưu sự kiện
 function saveEvent() {
+   
+    // Lấy giá trị từ các phần tử input và select
     const name = document.getElementById('event-name').value;
     const time = document.getElementById('event-time').value;
-    const province = document.getElementById('province').value;
-    const district = document.getElementById('district').value;
-    const ward = document.getElementById('ward').value;
-    const detailedAddress = document.getElementById('detailed-address').value;
-    const logo = document.getElementById('logo').files[0];
-    const banner = document.getElementById('banner').files[0];
 
-    if (!name || !time || !province || !district || !ward || !detailedAddress) {
+    // Lấy giá trị từ các phần tử select (tỉnh, quận, xã)
+    const provinceSelect = document.getElementById('province');
+    const districtSelect = document.getElementById('district');
+    const wardSelect = document.getElementById('ward');
+    
+    const provinceValue = provinceSelect.value;  // Lấy giá trị mã tỉnh
+    const districtValue = districtSelect.value;  // Lấy giá trị mã quận
+    const wardValue = wardSelect.value;          // Lấy giá trị mã xã
+    
+    // Lấy tên của các tỉnh, quận, xã
+    const provinceName = provinceSelect.options[provinceSelect.selectedIndex]?.text || '';
+    const districtName = districtSelect.options[districtSelect.selectedIndex]?.text || '';
+    const wardName = wardSelect.options[wardSelect.selectedIndex]?.text || '';
+    
+    const detailedAddress = document.getElementById('detailed-address').value;
+
+    // Kiểm tra dữ liệu đầu vào
+    if (!name || !time || !provinceValue || !districtValue || !wardValue || !detailedAddress) {
         alert("Vui lòng điền đầy đủ thông tin!");
         return;
     }
 
+    // Tạo sự kiện mới
     const event = {
         name,
         time,
-        address: `${detailedAddress}, ${ward}, ${district}, ${province}`,
-        logo: logo ? URL.createObjectURL(logo) : '',
-        banner: banner ? URL.createObjectURL(banner) : '',
-        status: new Date(time) > new Date() ? 'pending' : 'past'
+        address: `${detailedAddress}, ${wardName}, ${districtName}, ${provinceName}`,
+        status: 'pending' 
     };
 
-    if (editingIndex !== null) {
-        events[editingIndex] = event;
-        editingIndex = null;
-    } else {
-        events.push(event);
-    }
-
+    events.push(event);
     document.getElementById('event-form').reset();
     alert("Sự kiện đã được lưu!");
     showEventList();
     renderEvents();
 }
+
 
 // Hiển thị danh sách sự kiện
 function renderEvents() {

@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Chuyển hướng người dùng tới trang đăng nhập sau khi đăng ký thành công
         header('Location: login.php');
+        sleep(2);
         exit();  // Đảm bảo mã sau khi chuyển hướng không bị thực thi
     }
 }

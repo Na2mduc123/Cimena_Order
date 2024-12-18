@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['role'] = $user['role'];
 
                 header('Location: ' . ($user['role'] == 'admin' ? 'edit_user.php' : 'trangchu.php'));
+                sleep(2);
                 exit();
             } else {
                 $error = "Tên đăng nhập hoặc mật khẩu không đúng!";

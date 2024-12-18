@@ -35,7 +35,7 @@ if ($_SESSION['role'] != 'user') {
             <input type="text" placeholder="Tìm kiếm...">
         </div>
         <nav class="nav-links">
-            <a href="../html/taosk.html">Tạo sự kiện</a>
+            <a href="../html/taosk.html" class = "effect">Tạo sự kiện</a>
             <a href="#">Vé đã mua</a>
             <div class="account">
                 <a href="#">Tài khoản</a>
@@ -43,7 +43,7 @@ if ($_SESSION['role'] != 'user') {
                     <a href="#">Vé đã mua</a>
                     <a href="#">Sự kiện của tôi</a>
                     <a href="#">Thông tin tài khoản</a>
-                    <a href="#">Đăng xuất</a>
+                    <a href="logout.php">Đăng xuất</a>
                 </div>
             </div>
         </nav>
@@ -53,7 +53,7 @@ if ($_SESSION['role'] != 'user') {
         <a href="#">Hội thảo</a>
         <a href="#">Ca nhạc</a>
     </div>
-    <div class = "phim"><a href="../html/trangchu_phim.html">Phim</a></div>
+    <div class = "phim"><a href="../html/trangchu_phim.html" class = "effect">Phim</a></div>
     <div>
     <div class="menu1">
         <div class="carousel">

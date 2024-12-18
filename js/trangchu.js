@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add('loaded');
 
     // Lắng nghe sự kiện click vào liên kết
-    const links = document.querySelectorAll("a");
+    const links = document.querySelectorAll("a.effect");
 
     links.forEach(link => {
         link.addEventListener("click", (e) => {
