@@ -87,3 +87,66 @@ table th {
     display: flex;
     gap: 8px;  /* Giảm khoảng cách giữa các button */
 }
+
+
+ /* Container chung cho nội dung */
+ .content-wrapper {
+    position: relative; /* Để các phần tử chồng lên nhau */
+    
+    
+  }
+
+  .content {
+    position: absolute; /* Chồng lên nhau */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Ẩn mặc định */
+    visibility: hidden; /* Không hiển thị */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Hiệu ứng mượt */
+  }
+
+  .content.active {
+    opacity: 1; /* Hiện thị */
+    visibility: visible; /* Hiển thị trong DOM */
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+    color: blue;
+  }
+
+  a:hover {
+    color: darkblue;
+  }
+
+  #links {
+    margin: 30px;
+    display: flex;
+    text-align: center;
+    margin-left: 110px;
+  }
+
+  #links a
+  {
+    padding: 10px 15px 10px 15px ;
+    border: 2px solid;
+    font-size: 20px;
+    color: black;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  #links a:hover
+  {
+    background-color: #4cae4c;
+    color: #ffffff; /* Màu chữ khi hover (trắng) */
+  }
+
+  #links a.active
+  {
+    background-color: #4cae4c;
+    color: #ffffff; /* Màu chữ khi hover (trắng) */
+  }

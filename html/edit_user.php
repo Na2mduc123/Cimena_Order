@@ -79,70 +79,93 @@ $users = $stmt->fetchAll();
         <?php if ($alertMessage): ?>
             alert("<?php echo $alertMessage; ?>");
         <?php endif; ?>
+
+              // Lấy tất cả liên kết và phần tử
+    
     </script>
 </head>
 <body>
-    <h1>Quản lý người dùng</h1>
-    
-    <!-- Form Thêm người dùng -->
-    <h2>Thêm người dùng mới</h2>
-    <form method="POST">
-        Tên đăng nhập:
-        <input type="text" name="username" required><br>
-        
-        Mật khẩu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="password" name="password" required><br>
-
-        Vai trò:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <select name="role" required>
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-        </select><br><br>
-
-        <button type="submit" name="add_user">Thêm người dùng</button>
-    </form>
-
-    <h2>Danh sách người dùng</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tên đăng nhập</th>
-                <th>Vai trò</th>
-                <th>Hành động</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user): ?>
-                <tr>
-                    <td><?= $user['id'] ?></td>
-                    <td><?= $user['username'] ?></td>
-                    <td><?= $user['role'] ?></td>
-                    <td>
-                        <!-- Chỉnh sửa người dùng -->
-                        <form method="POST" style="display:inline;">
-                            <input type="hidden" name="id" value="<?= $user['id'] ?>">
-                            <input type="text" name="username" value="<?= $user['username'] ?>" required>
-                            <select name="role" required>
-                                <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
-                                <option value="user" <?= $user['role'] == 'user' ? 'selected' : '' ?>>User</option>
-                            </select>
-                            <button type="submit" name="edit_user">Sửa</button>
-                        </form>
-                        <!-- Xóa người dùng -->
-                        <?php if ($user['role'] != 'admin'): ?>
-                            <form method="POST" style="display:inline;">
-                                <input type="hidden" name="delete_id" value="<?= $user['id'] ?>">
-                                <button type="submit" name="delete_user" onclick="return confirm('Bạn chắc chắn muốn xóa người dùng này?')">Xóa</button>
-                            </form>
-                        <?php else: ?>
-                            <span>Không thể xóa</span>
-                        <?php endif; ?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+    <div id="links">
+        <a data-target="item1">Quản lý tài khoản người dùng</a>
+        <a data-target="item2">Quản lý sự kiện người dùng</a>
+    </div>
     <p><a href="logout.php">Đăng xuất</a></p>
+    
+    <!-- Nội dung các mục -->
+  <div class="content-wrapper">
+    <div id="item1" class="content">
+            <!-- Form Thêm người dùng -->
+        <h2>Thêm người dùng mới</h2>
+        <form method="POST">
+            Tên đăng nhập:
+            <input type="text" name="username" required><br>
+        
+            Mật khẩu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" name="password" required><br>
+
+            Vai trò:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select name="role" required>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select><br><br>
+
+            <button type="submit" name="add_user">Thêm người dùng</button>
+        </form>
+
+        <h2>Danh sách người dùng</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Vai trò</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <?php foreach ($users as $user): ?>
+                            <tr>
+                                <td><?= $user['id'] ?></td>
+                                <td><?= $user['username'] ?></td>
+                                <td><?= $user['role'] ?></td>
+                                <td>
+                                    <!-- Chỉnh sửa người dùng -->
+                                    <form method="POST" style="display:inline;">
+                                        <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                        <input type="text" name="username" value="<?= $user['username'] ?>" required>
+                                        <select name="role" required>
+                                            <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+                                            <option value="user" <?= $user['role'] == 'user' ? 'selected' : '' ?>>User</option>
+                                        </select>
+                                        <button type="submit" name="edit_user">Sửa</button>
+                                    </form>
+                                    <!-- Xóa người dùng -->
+                                    <?php if ($user['role'] != 'admin'): ?>
+                                        <form method="POST" style="display:inline;">
+                                            <input type="hidden" name="delete_id" value="<?= $user['id'] ?>">
+                                            <button type="submit" name="delete_user" onclick="return confirm('Bạn chắc chắn muốn xóa người dùng này?')">Xóa</button>
+                                        </form>
+                                    <?php else: ?>
+                                        <span>Không thể xóa</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+            </table>
+
+    </div>
+
+
+
+    <div id="item2" class="content">
+        <h2>Danh sách sự kiện</h2>
+
+    </div>
+  </div>
+ 
+    
+   
+    <script src = "../js/edit_user.js"></script>
 </body>
 </html>
