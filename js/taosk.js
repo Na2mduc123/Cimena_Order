@@ -169,6 +169,7 @@ function filterEvents(status) {
     renderFilteredEvents(filteredEvents);
 }
 
+
 function renderFilteredEvents(filteredEvents) {
     const eventItems = document.getElementById('event-items');
     eventItems.innerHTML = '';
@@ -229,3 +230,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function saveEvent() {
+    const form = document.getElementById('event-form');
+    const formData = new FormData(form);
+    formData.append('detailed_address', document.getElementById('detailed-address').value);
+
+    fetch('create_event.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        loadUserEvents();
+    });
+}
+
+function loadUserEvents() {
+    fetch('get_user_events.php')
+        .then(response => response.json())
+        .then(events => {
+            const userEvents = document.getElementById('user-events');
+            userEvents.innerHTML = '';
+            events.forEach(event => {
+                userEvents.innerHTML += `<li>${event.event_name} - ${event.status}</li>`;
+            });
+        });
+}

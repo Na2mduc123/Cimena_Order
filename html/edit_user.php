@@ -11,6 +11,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 // Biến thông báo
 $alertMessage = '';
 
+// PHẦN QUẢN LÝ TÀI KHOẢN NGƯỜI DÙNG
 // Thêm người dùng
 if (isset($_POST['add_user'])) {
     $username = $_POST['username'];
@@ -65,6 +66,7 @@ if (isset($_POST['delete_user'])) {
 // Lấy danh sách người dùng
 $stmt = $conn->query("SELECT * FROM users");
 $users = $stmt->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -160,7 +162,7 @@ $users = $stmt->fetchAll();
 
     <div id="item2" class="content">
         <h2>Danh sách sự kiện</h2>
-
+        <ul id="admin-events"></ul>
     </div>
   </div>
  

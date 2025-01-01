@@ -30,3 +30,62 @@ buttons.forEach(button => {
         button.classList.add('active');
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function loadAdminEvents() {
+  fetch('get_all_events.php')
+      .then(response => response.json())
+      .then(events => {
+          const adminEvents = document.getElementById('admin-events');
+          adminEvents.innerHTML = '';
+          events.forEach(event => {
+              adminEvents.innerHTML += `
+                  <li>
+                      ${event.event_name} (${event.status})
+                      <textarea id="comment-${event.id}" placeholder="Nhập phản hồi"></textarea>
+                      <button onclick="updateEventStatus(${event.id}, 'approved')">Duyệt</button>
+                      <button onclick="updateEventStatus(${event.id}, 'rejected')">Không duyệt</button>
+                  </li>
+              `;
+          });
+      });
+}
+
+function updateEventStatus(eventId, status) {
+  const comment = document.getElementById(`comment-${eventId}`).value;
+
+  fetch('update_event_status.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ event_id: eventId, status: status, admin_comment: comment })
+  })
+  .then(response => response.text())
+  .then(data => {
+      alert(data);
+      loadAdminEvents();
+  });
+}
+
+loadAdminEvents();

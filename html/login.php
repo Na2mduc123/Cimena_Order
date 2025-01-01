@@ -2,6 +2,7 @@
 session_start();
 include('../config/database.php');
 
+
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = $stmt->fetch();
             if ($user && password_verify($password, $user['password'])) {
                 session_regenerate_id(true);
+                $_SESSION['user_id'] = $user['id']; // Lưu ID người dùng
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 

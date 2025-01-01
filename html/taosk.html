@@ -20,42 +20,46 @@
                 <h2>Tạo Sự kiện</h2>
                 <form id="event-form">
                     <div class="form-group">
+                        <label for="user_id">Tên Sự kiện:</label>
+                        <input type="hidden" name="user_id" id="user_id" value="1"> <!-- ID của người dùng -->
+                    </div>
+                    <div class="form-group">
                         <label for="event-name">Tên Sự kiện:</label>
-                        <input type="text" id="event-name" placeholder="Nhập tên sự kiện" required>
+                        <input type="text" name ="event_name" id="event-name" placeholder="Nhập tên sự kiện" required>
                     </div>
                     <div class="form-group">
                         <label for="event-time">Thời gian:</label>
-                        <input type="datetime-local" id="event-time" required>
+                        <input type="datetime-local" name ="event_time" id="event-time" required>
                     </div>
                     <div class="form-group">
                         <label for="logo">Logo:</label>
-                        <input type="file" id="logo" accept="image/*">
+                        <input type="file" name ="logo" id="logo" accept="image/*">
                     </div>
                     <div class="form-group">
                         <label for="banner">Ảnh nền (Banner):</label>
-                        <input type="file" id="banner" accept="image/*">
+                        <input type="file" name ="banner" id="banner" accept="image/*">
                     </div>
                     <div class="form-group">
                         <label for="province">Tỉnh/Thành:</label>
-                        <select id="province" required onchange="loadDistricts(this.value)">
+                        <select name ="province" id="province" required onchange="loadDistricts(this.value)">
                             <option value="">Chọn Tỉnh/Thành</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="district">Quận/Huyện:</label>
-                        <select id="district" required onchange="loadWards(this.value)">
+                        <select name ="district" id="district" required onchange="loadWards(this.value)">
                             <option value="">Chọn Quận/Huyện</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="ward">Phường/Xã:</label>
-                        <select id="ward" required>
+                        <select name ="ward" id="ward" required>
                             <option value="">Chọn Phường/Xã</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="detailed-address">Địa chỉ cụ thể:</label>
-                        <input type="text" id="detailed-address" placeholder="Số nhà, đường,..." required>
+                        <input type="text" name ="detailed-address" id="detailed-address" placeholder="Số nhà, đường,..." required>
                     </div>
                     <button type="button" class="btn-primary" onclick="saveEvent()">Lưu Sự kiện</button>
                 </form>
