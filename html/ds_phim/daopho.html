@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐÀO, PHỞ VÀ PIANO</title>
+    <link rel="stylesheet" href="../../css/Avenger.css">
+    <link rel="icon" href="../../img/ten.jpg" type="image/png">
+</head>
+<body>
+    
+    <div class="phanthan">
+
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img src="../../img/daopho.jpg" alt="Poster Phim">
+            </div>
+            <div class="movie-info">
+                <h1 id = "movie_name1">Tên Phim: Đào, Phở và Piano</h1>
+                <p><strong>Thể loại:</strong> Chiến tranh, Chính kịch</p>
+                <p><strong>Đạo diễn:</strong> Phi Tiến Sơn</p>
+                <p><strong>Thời lượng:</strong> 100 phút</p>
+                <p><strong>Thời gian chiếu:</strong> 24 tháng 4, 2024</p>
+                <p><strong>Ngôn ngữ:</strong>Tiếng Việt (phụ đề)</p>
+                <p><strong>Diễn viên:</strong> 	Doãn Quốc Đam, Cao Thùy Linh, Trần Lực, Trung Hiếu,...</p>
+            </div>
+        </div>
+
+        <div class="movie-description">
+            <h2>Tóm tắt phim:</h2>
+            <p>
+                Đào, Phở và Piano là câu chuyện độc đáo, đầy cảm xúc xoay quanh cuộc sống trong thời kỳ chiến tranh gay gắt ở Hà Nội. Bộ phim theo dõi hành trình của chàng dân quân Văn Dân và mối tình ngang trái với nàng tiểu thư yêu âm nhạc Thục Hương. Dưới sự chỉ đạo của đạo diễn tài năng Phi Tiến Sơn, tác phẩm không chỉ thu hút khán giả bởi dàn diễn viên xuất sắc mà còn bởi cốt truyện lôi cuốn và sâu sắc. Cùng với những tình tiết cam go, Đào, Phở và Piano mang lại cho khán giả những phút giây xúc động và suy tư về ý nghĩa của tình yêu và lòng dũng cảm giữa những thời điểm khó khăn nhất.
+
+            </p>
+        </div>
+
+        <div class="movie-schedule">
+            <h2>Lịch chiếu:</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showSchedule('schedule-1')">
+                        <td>01/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-2')">
+                        <td>02/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-3')">
+                        <td>03/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="schedule-1" class="schedule-times">
+                <div class="time-btns" id="times-1"></div>
+            </div>
+            <div id="schedule-2" class="schedule-times">
+                <div class="time-btns" id="times-2"></div>
+            </div>
+            <div id="schedule-3" class="schedule-times">
+                <div class="time-btns" id="times-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cinema">
+            <h1>Đặt Ghế Xem Phim</h1>
+            <div class="seats" id="seats-container"></div>
+        </div>
+        <div class="ticket-info">
+            <h2>Thông Tin Vé</h2>
+            <p>Ngày: <span id="date"></span></p>
+            <p>Giờ: <span id="time"></span></p>
+            <p>Ghế đã chọn: <span id="selected-seats">None</span></p>
+            <p>Số lượng: <span id="selected-count">0</span></p>
+            <p>Giá mỗi vé thường: 50.000 VNĐ</p>
+            <p>Giá mỗi ghế đôi: 90.000 VNĐ</p>
+            <p>Tổng tiền: <span id="total-price">0</span> VNĐ</p>
+            <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+        </div>
+    </div>
+
+    <a href="../html/phimdangchieu.html"><button class="back-button" onclick="goBack()">Trở về</button></a>
+    <div id="loader">⏳</div>
+    <script src="../../js/Avenger.js"></script>
+</body>
+</html>

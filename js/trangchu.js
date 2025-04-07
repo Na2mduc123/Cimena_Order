@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const section = document.querySelector(`[data-section="${link.textContent.trim()}"]`);
             if (section) {
                 window.scrollTo({
-                    top: section.offsetTop - 120, // Adjust offset for fixed header
+                    top: section.offsetTop - 120, 
                     behavior: 'smooth'
                 });
             }
@@ -181,3 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+
+
+
+
+

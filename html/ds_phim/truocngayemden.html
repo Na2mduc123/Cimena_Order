@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRƯỚC NGÀY EM ĐẾN</title>
+    <link rel="stylesheet" href="../../css/Avenger.css">
+    <link rel="icon" href="../../img/ten.jpg" type="image/png">
+</head>
+<body>
+    
+    <!-- Phần thông tin phim -->
+    <div class="phanthan">
+        <!-- Header: Hình ảnh và thông tin chi tiết -->
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img src="../../img/truocngayemden.jpg" alt="Poster Phim">
+            </div> 
+            <div class="movie-info">
+                <h1 id = "movie_name1">Tên Phim: Trước Ngày Em Đến</h1>
+                <p><strong>Thể loại:</strong>Chính Kịch, Lãng Mạn</p>
+                <p><strong>Đạo diễn:</strong> Thea Sharrock</p>
+                <p><strong>Thời lượng:</strong> 110 phút</p>
+                <p><strong>Thời gian chiếu:</strong> 23 tháng 5, 2016</p>
+                <p><strong>Ngôn ngữ:</strong> Tiếng Anh (phụ đề)</p>
+                <p><strong>Diễn viên:</strong> 	
+                    Emilia Clarke,
+                    Sam Claflin,
+                    Janet McTeer,
+                    Charles Dance,
+                    Brendan Coyle</p>
+            </div>
+        </div>
+
+        <!-- Tóm tắt phim -->
+        <div class="movie-description">
+            <h2>Tóm tắt phim:</h2>
+            <p>
+                Trước ngày em đến (tựa gốc tiếng Anh: Me Before You) là một bộ phim chính kịch lãng mạn năm 2016 do Thea Sharrock đạo diễn, đồng thời cũng là tác phẩm điện ảnh đầu tay của cô. Được Jojo Moyes chuyển thể từ chính cuốn tiểu thuyết cùng tên năm 2012 của bà, bộ phim là câu chuyện tình giữa chàng trai bị liệt và cô gái chăm sóc cho anh. 
+            </p>
+        </div>
+
+        <!-- Lịch chiếu -->
+        <div class="movie-schedule">
+            <h2>Lịch chiếu:</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showSchedule('schedule-1')">
+                        <td>01/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-2')">
+                        <td>02/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-3')">
+                        <td>03/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="schedule-1" class="schedule-times">
+                <div class="time-btns" id="times-1"></div>
+            </div>
+            <div id="schedule-2" class="schedule-times">
+                <div class="time-btns" id="times-2"></div>
+            </div>
+            <div id="schedule-3" class="schedule-times">
+                <div class="time-btns" id="times-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phần đặt ghế -->
+    <div class="container">
+        <div class="cinema">
+            <h1>Đặt Ghế Xem Phim</h1>
+            <div class="seats" id="seats-container"></div>
+        </div>
+        <div class="ticket-info">
+            <h2>Thông Tin Vé</h2>
+            <p>Ngày: <span id="date"></span></p>
+            <p>Giờ: <span id="time"></span></p>
+            <p>Ghế đã chọn: <span id="selected-seats">None</span></p>
+            <p>Số lượng: <span id="selected-count">0</span></p>
+            <p>Giá mỗi vé thường: 50.000 VNĐ</p>
+            <p>Giá mỗi ghế đôi: 90.000 VNĐ</p>
+            <p>Tổng tiền: <span id="total-price">0</span> VNĐ</p>
+            <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+        </div>
+    </div>
+
+    <a href="../html/phimdangchieu.html"><button class="back-button" onclick="goBack()">Trở về</button></a>
+    <div id="loader">⏳</div>
+    <script src="../../js/Avenger.js"></script>
+</body>
+</html>

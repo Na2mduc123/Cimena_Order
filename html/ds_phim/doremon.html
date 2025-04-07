@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DORAEMON: NOBITA VÀ BẢN GIAO HƯỞNG ĐỊA CẦU</title>
+    <link rel="stylesheet" href="../../css/Avenger.css">
+    <link rel="icon" href="../../img/ten.jpg" type="image/png">
+</head>
+<body>
+    
+    <div class="phanthan">
+
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img src="../../img/doremon.jpg" alt="Poster Phim">
+            </div>
+            <div class="movie-info">
+                <h1 id = "movie_name1">Tên Phim: Doraemon: Nobita và bản giao hưởng Địa Cầu</h1>
+                <p><strong>Thể loại:</strong> Anime, Thiếu Nhi</p>
+                <p><strong>Đạo diễn:</strong> Kazuaki Imai</p>
+                <p><strong>Thời lượng:</strong> 115 phút</p>
+                <p><strong>Thời gian chiếu:</strong> 24 tháng 4, 2024</p>
+                <p><strong>Ngôn ngữ:</strong>Tiếng Nhật (phụ đề)</p>
+                <p><strong>Diễn viên:</strong> 	Mizuta Wasabi, Seki Tomokazu, Kimura Subaru, Ohara Megumi, Kakazu Yumi</p>
+            </div>
+        </div>
+
+        <div class="movie-description">
+            <h2>Tóm tắt phim:</h2>
+            <p>
+                Chuẩn bị cho buổi hòa nhạc ở trường, Nobita đang tập thổi sáo recorder - nhạc cụ mà cậu dở tệ nhất. Thích thú trước nốt "No" lạc quẻ của Nobita , Micca - cô bé bí ẩn đã mời Doraemon , Nobita cùng nhóm bạn đến "Farre" - Cung điện âm nhạc tọa lạc trên một hành tinh nơi âm nhạc sẽ hóa thành năng lượng. Nhằm cứu cung điện này, Micca và Chapeck đang tìm kiếm 5 "Virtouso" - bậc thầy âm nhạc huyền thoại sẽ cùng mình biểu diễn! Với bảo bối thần kì "Chứng chỉ chuyên viên âm nhạc", Doraemon và các bạn đã chọn nhạc bằng sợi dây thần định mệnh, cùng Micca hòa tấu, từng bước khôi phục cung điện "Farre". Tuy nhiên, một vật thể sống đáng sợ rất ghét âm nhạc sẽ xóa sổ âm nhạc khỏi thế giới đang đến gần, Trái Đất đang rơi vào nguy hiểm...! Liệu nhóm người bạn có thể cứu được "tương lai âm nhạc" và địa cầu này?
+
+            </p>
+        </div>
+
+        <div class="movie-schedule">
+            <h2>Lịch chiếu:</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showSchedule('schedule-1')">
+                        <td>01/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-2')">
+                        <td>02/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-3')">
+                        <td>03/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="schedule-1" class="schedule-times">
+                <div class="time-btns" id="times-1"></div>
+            </div>
+            <div id="schedule-2" class="schedule-times">
+                <div class="time-btns" id="times-2"></div>
+            </div>
+            <div id="schedule-3" class="schedule-times">
+                <div class="time-btns" id="times-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cinema">
+            <h1>Đặt Ghế Xem Phim</h1>
+            <div class="seats" id="seats-container"></div>
+        </div>
+        <div class="ticket-info">
+            <h2>Thông Tin Vé</h2>
+            <p>Ngày: <span id="date"></span></p>
+            <p>Giờ: <span id="time"></span></p>
+            <p>Ghế đã chọn: <span id="selected-seats">None</span></p>
+            <p>Số lượng: <span id="selected-count">0</span></p>
+            <p>Giá mỗi vé thường: 50.000 VNĐ</p>
+            <p>Giá mỗi ghế đôi: 90.000 VNĐ</p>
+            <p>Tổng tiền: <span id="total-price">0</span> VNĐ</p>
+            <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+        </div>
+    </div>
+
+    <a href="../html/phimdangchieu.html"><button class="back-button" onclick="goBack()">Trở về</button></a>
+    <div id="loader">⏳</div>
+    <script src="../../js/Avenger.js"></script>
+</body>
+</html>

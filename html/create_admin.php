@@ -1,23 +1,39 @@
 <?php
-// Kết nối cơ sở dữ liệu
-include('../config/database.php');
+// Kết nối đến cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";  // Thay đổi nếu cần
+$password = "";      // Thay đổi nếu cần
+$dbname = "users_system"; // Tên cơ sở dữ liệu của bạn
 
-// Tạo tài khoản admin
-$username = 'admin';
-$password = password_hash('admin', PASSWORD_DEFAULT); // Mã hóa mật khẩu
-$role = 'admin';
+// Tạo kết nối
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Kiểm tra xem tài khoản admin đã tồn tại chưa
-$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
-$stmt->execute([$username]);
-$existing_user = $stmt->fetch();
-
-if ($existing_user) {
-    echo "Tài khoản admin đã tồn tại!";
-} else {
-    // Thêm tài khoản admin vào cơ sở dữ liệu
-    $stmt = $conn->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
-    $stmt->execute([$username, $password, $role]);
-    echo "Tài khoản admin đã được tạo thành công!";
+// Kiểm tra kết nối
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
 }
+
+// Tạo tên người dùng và mật khẩu
+$user = "admin";
+$pass = "admin";  // Mật khẩu bạn muốn đặt
+
+// Mã hóa mật khẩu trước khi lưu vào cơ sở dữ liệu
+$hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
+
+// Thực thi câu lệnh SQL để thêm tài khoản admin
+$sql = "INSERT INTO users (username, password, role) VALUES (?, ?, 'admin')";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $user, $hashedPassword); // "ss" là kiểu dữ liệu của 2 tham số (string, string)
+
+// Thực thi và kiểm tra kết quả
+if ($stmt->execute()) {
+    echo "Tài khoản admin đã được tạo thành công!";
+} else {
+    echo "Lỗi khi tạo tài khoản: " . $stmt->error;
+}
+
+// Đóng kết nối
+$stmt->close();
+$conn->close();
 ?>

@@ -23,7 +23,7 @@ function showSchedule(scheduleId) {
     schedules.forEach(function(schedule) {
         schedule.classList.remove('active');
     });
-
+    
     // Hiển thị giờ chiếu của ngày đã chọn
     var scheduleToShow = document.getElementById(scheduleId);
     scheduleToShow.classList.add('active');
@@ -41,6 +41,7 @@ function showSchedule(scheduleId) {
         
     });
 
+
     // Khi chọn giờ chiếu
 function handleTimeSelection(event, time) {
 // Bỏ chọn các giờ chiếu khác
@@ -56,6 +57,8 @@ document.getElementById("time").textContent = time;
 times.forEach(function (time) {
 const button = document.createElement("button");
 button.textContent = time;
+
+selectedShowTime = time;
 
 // Thêm sự kiện click
 button.onclick = function (event) {
@@ -89,6 +92,7 @@ const seatsContainer = document.getElementById("seats-container");
 const selectedCount = document.getElementById("selected-count");
 const selectedSeats = document.getElementById("selected-seats");
 const totalPrice = document.getElementById("total-price");
+
 
 const TOTAL_SINGLE_ROWS = 5; // Số hàng ghế đơn
 const SINGLE_SEATS_PER_ROW = 10; // Số ghế đơn mỗi hàng
@@ -160,36 +164,38 @@ totalPrice.textContent = total.toLocaleString();
 
 // Hàm xử lý đặt vé
 function bookTickets() {
-const selectedSeatsElements = document.querySelectorAll(".seat.selected");
-if (selectedSeatsElements.length === 0) {
-alert("Bạn chưa chọn ghế nào!");
-return;
+    const selectedSeatsElements = document.querySelectorAll(".seat.selected");
+    if (selectedSeatsElements.length === 0) {
+        alert("Bạn chưa chọn ghế nào!");
+        return;
+    }
+
+    // Lấy thông tin ghế đã chọn
+    const seatNumbers = [...selectedSeatsElements].map(seat => seat.dataset.seatNumber).join(", ");
+
+    // Lấy thông tin ngày và giờ chiếu
+    const selectedDate = document.getElementById("date").textContent || "Chưa chọn ngày";
+    const selectedTimeButtons = document.querySelectorAll(".schedule-times.active button");
+    let selectedTime = "Chưa chọn giờ chiếu"; // Khởi tạo giá trị mặc định
+
+    console.log("Tìm các button giờ chiếu:", selectedTimeButtons); // Kiểm tra các button giờ chiếu
+    selectedTimeButtons.forEach((button) => {
+        if (button.classList.contains("selected-time")) {
+            selectedTime = button.textContent;
+        }
+    });
+
+    console.log("Giờ chiếu đã chọn: ", selectedTime); // Kiểm tra giá trị của selectedTime
+
+    // Kiểm tra nếu giờ chiếu chưa được chọn
+    if (selectedTime === "Chưa chọn giờ chiếu") {
+        alert("Bạn chưa chọn giờ chiếu!");
+        return;
+    }
+
+    // Hiển thị thông tin đặt vé
+    alert(`Thông tin đặt vé:\n- Ngày: ${selectedDate}\n- Giờ: ${selectedTime}\n- Ghế: ${seatNumbers}\n- Tổng tiền: ${totalPrice.textContent} VNĐ`);
 }
-
-// Lấy thông tin ghế đã chọn
-const seatNumbers = [...selectedSeatsElements].map(seat => seat.dataset.seatNumber).join(", ");
-
-// Lấy thông tin ngày và giờ chiếu
-const selectedDate = document.getElementById("date").textContent || "Chưa chọn ngày";
-const selectedTimeButtons = document.querySelectorAll(".schedule-times.active button");
-let selectedTime = "Chưa chọn giờ chiếu";
-
-selectedTimeButtons.forEach((button) => {
-if (button.classList.contains("selected-time")) {
-    selectedTime = button.textContent;
-}
-});
-
-// Kiểm tra nếu giờ chiếu chưa được chọn
-if (selectedTime === "Chưa chọn giờ chiếu") {
-alert("Bạn chưa chọn giờ chiếu!");
-return;
-}
-
-// Hiển thị thông tin đặt vé
-alert(`Thông tin đặt vé:\n- Ngày: ${selectedDate}\n- Giờ: ${selectedTime}\n- Ghế: ${seatNumbers}`);
-}
-
 
 
 let currentIndex = 0;
@@ -236,3 +242,117 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+// Cập nhật ngày và giờ hiện tại
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+    const date = now.toLocaleDateString("vi-VN", options);
+    const time = now.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+    document.getElementById("date").textContent = date;
+    document.getElementById("time").textContent = time;
+
+    // Cập nhật các ngày chiếu
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);  // Ngày mai
+    const dayAfterTomorrow = new Date(today);
+    dayAfterTomorrow.setDate(today.getDate() + 2);  // Ngày kia
+
+    const dateStrings = [
+        today.toLocaleDateString("vi-VN", { weekday: 'short', day: 'numeric', month: 'short' }),
+        tomorrow.toLocaleDateString("vi-VN", { weekday: 'short', day: 'numeric', month: 'short' }),
+        dayAfterTomorrow.toLocaleDateString("vi-VN", { weekday: 'short', day: 'numeric', month: 'short' }),
+    ];
+
+    // Cập nhật ngày chiếu trong bảng lịch chiếu
+    const scheduleRows = document.querySelectorAll(".schedule-table tbody tr");
+    scheduleRows[0].cells[0].textContent = dateStrings[0]; // Hôm nay
+    scheduleRows[1].cells[0].textContent = dateStrings[1]; // Ngày mai
+    scheduleRows[2].cells[0].textContent = dateStrings[2]; // Ngày kia
+}
+
+// Cập nhật mỗi giây
+setInterval(updateDateTime, 1000);
+
+
+    // Tính tổng số tiền
+    const totalAmount = document.getElementById("total-price").textContent.replace(/\D/g, "");
+
+
+
+
+
+    function bookTickets() {
+        const selectedSeatsElements = document.querySelectorAll(".seat.selected");
+        if (selectedSeatsElements.length === 0) {
+            alert("Bạn chưa chọn ghế nào!");
+            return;
+        }
+    
+        // Lấy thông tin ghế đã chọn
+        const seatNumbers = [...selectedSeatsElements].map(seat => seat.dataset.seatNumber).join(", ");
+    
+        // Lấy thông tin ngày và giờ chiếu
+        const selectedDate = document.getElementById("date").textContent || "Chưa chọn ngày";
+        const selectedTimeButtons = document.querySelectorAll(".schedule-times.active button");
+        let selectedTime = "Chưa chọn giờ chiếu"; // Khởi tạo giá trị mặc định
+    
+        console.log("Tìm các button giờ chiếu:", selectedTimeButtons); // Kiểm tra các button giờ chiếu
+        selectedTimeButtons.forEach((button) => {
+            if (button.classList.contains("selected-time")) {
+                selectedTime = button.textContent;
+            }
+        });
+    
+        console.log("Giờ chiếu đã chọn: ", selectedTime); // Kiểm tra giá trị của selectedTime
+    
+        // Kiểm tra nếu giờ chiếu chưa được chọn
+        if (selectedTime === "Chưa chọn giờ chiếu") {
+            alert("Bạn chưa chọn giờ chiếu!");
+            return;
+        }
+    
+        // Lấy thông tin tổng tiền
+        const totalAmount = document.getElementById("total-price").textContent.replace(/\D/g, "");
+    
+        // Hiển thị thông tin đặt vé
+        alert(`Thông tin đặt vé:\n- Ngày: ${selectedDate}\n- Giờ: ${selectedTime}\n- Ghế: ${seatNumbers}\n- Tổng tiền: ${totalAmount} VNĐ`);
+    
+        // Gửi dữ liệu tới save_ticket.php
+        const data = {
+            user_id: 1,  // Giả sử user_id là 1 (có thể lấy từ session)
+            seat_number: seatNumbers,
+            movie_name: document.getElementById('movie_name1').textContent, // Tên phim
+            show_time: selectedTime,
+            amount: parseFloat(totalAmount)  // Số tiền cần thanh toán
+        };
+    
+        fetch('../html/save_ticket.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log('Response:', result);
+            if (result.message === "Đặt vé thành công!") {
+                alert('Đặt vé thành công!');
+            } else {
+                alert('Đặt vé thất bại: ' + result.message);
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi:', error);
+            alert('Có lỗi xảy ra khi đặt vé.');
+        });
+    }
+    
+    
+    
+    
+    

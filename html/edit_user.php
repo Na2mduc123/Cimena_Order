@@ -11,6 +11,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 // Biến thông báo
 $alertMessage = '';
 
+
+// PHẦN QUẢN LÝ TÀI KHOẢN NGƯỜI DÙNG
 // Thêm người dùng
 if (isset($_POST['add_user'])) {
     $username = $_POST['username'];
@@ -65,6 +67,10 @@ if (isset($_POST['delete_user'])) {
 // Lấy danh sách người dùng
 $stmt = $conn->query("SELECT * FROM users");
 $users = $stmt->fetchAll();
+
+// Lấy danh sách sự kiện
+$stmt = $conn->query("SELECT * FROM qly_skien ORDER BY id DESC");
+$events = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -159,13 +165,161 @@ $users = $stmt->fetchAll();
 
 
     <div id="item2" class="content">
-        <h2>Danh sách sự kiện</h2>
-
+    <div id="filter-buttons">
+        <button onclick="loadAdminEvents('pending')">Chờ duyệt</button>
+        <button onclick="loadAdminEvents('approved')">Đã duyệt</button>
+        <button onclick="loadAdminEvents()">Tất cả</button>
     </div>
-  </div>
- 
-    
-   
-    <script src = "../js/edit_user.js"></script>
+
+    <!-- Danh sách sự kiện -->
+    <div id="admin-event-list-section">                                                                                                     
+        <h2>Danh sách Sự kiện</h2>
+        <ul id="admin-events">
+            <!-- Danh sách sự kiện sẽ được chèn vào đây -->
+        </ul>
+    </div>             
+
+    <!-- JavaScript -->
+    <script>
+        // Script điều khiển các phần tử hiện thị trên cùng 1 page và cùng 1 chỗ khi ấn vào link tương ứng
+
+        const links = document.querySelectorAll('#links a');
+    const items = document.querySelectorAll('.content');
+
+    // Thêm sự kiện click cho từng liên kết
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        const targetId = link.getAttribute('data-target');
+
+        // Ẩn tất cả các phần tử
+        items.forEach(item => item.classList.remove('active'));
+
+        // Hiển thị phần tử tương ứng
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+
+// Lấy tất cả các nút
+const buttons = document.querySelectorAll('#links a');
+
+// Thêm sự kiện click cho từng nút
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Xóa lớp 'active' khỏi tất cả các nút
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Thêm lớp 'active' vào nút được click
+        button.classList.add('active');
+    });
+});
+
+async function loadAdminEvents(status = '') {
+    console.log(`Loading events with status: ${status}`);
+    try {
+        const response = await fetch('../html/get_all_events.php?status=' + status);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const events = await response.json();
+        console.log('Received events:', events);
+        const adminEvents = document.getElementById('admin-events');
+        adminEvents.innerHTML = ''; // Xóa nội dung hiện có
+
+        // Kiểm tra nếu events là mảng
+        if (Array.isArray(events) && events.length > 0) {
+            events.forEach(event => {
+                console.log(`Processing event: ${event.event_name}`);
+
+                // Kiểm tra giá trị tỉnh, huyện, xã trước khi hiển thị
+                const province = event.province || 'Không có thông tin tỉnh';
+                const district = event.district || 'Không có thông tin huyện';
+                const ward = event.ward || 'Không có thông tin xã';
+
+                // Tạo phần tử mới cho sự kiện
+                const eventItem = `
+                    <li>
+                        <strong>${event.event_name} (${event.status})</strong><br>
+                        Thời gian diễn ra: ${new Date(event.event_time).toLocaleString()}<br>
+                        Địa điểm: ${province}, ${district}, ${ward}, ${event.detailed_address}<br>
+                        <label for="comment-${event.id}">Nhập phản hồi:</label>
+                        <input type="text" id="comment-${event.id}" value="${event.admin_comment || ''}">
+                        <button onclick="updateEventStatus(${event.id}, 'approved')">Duyệt</button>
+                        <button onclick="updateEventStatus(${event.id}, 'rejected')">Không duyệt</button>
+                        <button onclick="deleteEvent(${event.id})">Xóa</button>
+                    </li>
+                `;
+                adminEvents.insertAdjacentHTML('beforeend', eventItem);
+            });
+        } else {
+            adminEvents.innerHTML = 'Không có sự kiện nào với trạng thái này.';
+        }
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        alert('Có lỗi xảy ra khi tải sự kiện.');
+    }
+}
+
+
+
+
+async function updateEventStatus(eventId, status) {
+    const comment = document.getElementById(`comment-${eventId}`).value;
+    console.log(`Updating event ${eventId} with status: ${status} and comment: ${comment}`);
+
+    try {
+        const response = await fetch('update_event_status.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ event_id: eventId, status: status, admin_comment: comment }),
+        });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        const data = await response.text();
+        console.log('Update response:', data); // Kiểm tra phản hồi từ API
+        alert(data);
+        await loadAdminEvents(); // Tải lại sự kiện sau khi cập nhật
+    } catch (error) {
+        console.error('Error updating event status:', error);
+        alert('Có lỗi xảy ra khi cập nhật trạng thái sự kiện.');
+    }
+}
+
+// Hàm xóa sự kiện
+async function deleteEvent(eventId) {
+    const confirmDelete = confirm('Bạn có chắc chắn muốn xóa sự kiện này?');
+    if (!confirmDelete) return; // Nếu người dùng không xác nhận, dừng hàm
+
+    try {
+        const response = await fetch('../html/delete_event.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ event_id: eventId }),
+        });
+
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const result = await response.text(); // Nhận phản hồi từ server
+        alert(result); // Hiển thị phản hồi từ server
+
+        // Tải lại danh sách sự kiện sau khi xóa
+        loadAdminEvents();
+    } catch (error) {
+        console.error('Error deleting event:', error);
+        alert('Có lỗi xảy ra khi xóa sự kiện: ' + error.message);
+    }
+}
+
+// Gọi hàm để tải sự kiện khi trang web tải
+
+
+
+
+
+
+    </script>
+
+
+
+
 </body>
 </html>

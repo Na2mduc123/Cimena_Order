@@ -150,3 +150,105 @@ table th {
     background-color: #4cae4c;
     color: #ffffff; /* Màu chữ khi hover (trắng) */
   }
+
+  /* Tiêu đề phần danh sách sự kiện */
+#admin-event-list-section h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* Danh sách sự kiện */
+#admin-events {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Các sự kiện */
+#admin-events li {
+  background-color: #f4f7fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Khi hover vào sự kiện */
+#admin-events li:hover {
+  transform: translateY(-5px);
+  background-color: #e0f2f1;
+}
+
+
+/* Tên sự kiện */
+#admin-events li strong {
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+/* Địa điểm, thời gian */
+#admin-events li p {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin: 5px 0;
+}
+
+/* Các nút điều khiển trong mỗi sự kiện */
+#admin-events li button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#admin-events li button:hover {
+    background-color: #2980b9;
+}
+
+/* Các nút cho phần xóa và duyệt sự kiện */
+#admin-events li button.delete {
+    background-color: #e74c3c;
+}
+
+#admin-events li button.delete:hover {
+    background-color: #c0392b;
+}
+
+#admin-events li button.approve {
+    background-color: #2ecc71;
+}
+
+#admin-events li button.approve:hover {
+    background-color: #27ae60;
+}
+
+#admin-events li button.reject {
+    background-color: #f39c12;
+}
+
+#admin-events li button.reject:hover {
+    background-color: #e67e22;
+}
+#admin-events input {
+  width: calc(100% - 27px); /* Chiều rộng 100% trừ đi chiều rộng của button */
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+#loader
+{
+    display: none;
+}

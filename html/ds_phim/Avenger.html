@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVENGERS: ENDGAME</title>
+    <link rel="stylesheet" href="../../css/Avenger.css">
+    <link rel="icon" href="../../img/ten.jpg" type="image/png">
+</head>
+<body>
+    
+    <!-- Phần thông tin phim -->
+    <div class="phanthan">
+        <!-- Header: Hình ảnh và thông tin chi tiết -->
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img src="../../img/avenger.jpg" alt="Poster Phim">
+            </div>
+            <div class="movie-info">
+                <div id="movie_name1"><h1>Tên Phim: Avengers: Endgame</h1></div>
+                <p><strong>Thể loại:</strong> Hành động, Khoa học viễn tưởng</p>
+                <p><strong>Đạo diễn:</strong> Anthony Russo, Joe Russo</p>
+                <p><strong>Thời lượng:</strong> 181 phút</p>
+                <p><strong>Thời gian chiếu:</strong> 24 tháng 4, 2019</p>
+                <p><strong>Ngôn ngữ:</strong> Tiếng Anh, Tiếng Việt (phụ đề)</p>
+                <p><strong>Diễn viên:</strong> Robert Downey Jr., Chris Evans, Scarlett Johansson</p>
+            </div>
+        </div>
+
+        <!-- Tóm tắt phim -->
+        <div class="movie-description">
+            <h2>Tóm tắt phim:</h2>
+            <p>
+                Avengers: Endgame là bộ phim siêu anh hùng hoành tráng, nơi các Avengers còn sống sót phải tập hợp lại để chiến đấu chống lại Thanos và khôi phục sự cân bằng của vũ trụ. 
+                Với cốt truyện hấp dẫn, hiệu ứng đặc biệt đỉnh cao và cảm xúc sâu sắc, bộ phim đã chinh phục hàng triệu khán giả trên toàn thế giới.
+            </p>
+        </div>
+
+        <!-- Lịch chiếu -->
+        <div class="movie-schedule">
+            <h2>Lịch chiếu:</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showSchedule('schedule-1')">
+                        <td>01/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-2')">
+                        <td>02/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                    <tr onclick="showSchedule('schedule-3')">
+                        <td>03/12/2024</td>
+                        <td>Nhấn để xem giờ chiếu</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="schedule-1" class="schedule-times">
+                <div class="time-btns" id="times-1"></div>
+            </div>
+            <div id="schedule-2" class="schedule-times">
+                <div class="time-btns" id="times-2"></div>
+            </div>
+            <div id="schedule-3" class="schedule-times">
+                <div class="time-btns" id="times-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phần đặt ghế -->
+    <div class="container">
+        <div class="cinema">
+            <h1>Đặt Ghế Xem Phim</h1>
+            <div class="seats" id="seats-container"></div>
+        </div>
+        <div class="ticket-info">
+            <h2>Thông Tin Vé</h2>
+            <p>Ngày: <span id="date"></span></p>
+            <p>Giờ: <span id="time"></span></p>
+            <p>Ghế đã chọn: <span id="selected-seats">None</span></p>
+            <p>Số lượng: <span id="selected-count">0</span></p>
+            <p>Giá mỗi vé thường: 50.000 VNĐ</p>
+            <p>Giá mỗi ghế đôi: 90.000 VNĐ</p>
+            <p>Tổng tiền: <span id="total-price">0</span> VNĐ</p>
+            <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+        </div>
+    </div>
+
+    <a href="../html/phimdangchieu.html"><button class="back-button" onclick="goBack()">Trở về</button></a>
+    <div id="loader">⏳</div>
+    <script src="../../js/Avenger.js"></script>
+</body>
+</html>

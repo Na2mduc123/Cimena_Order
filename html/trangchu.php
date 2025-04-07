@@ -3,7 +3,7 @@ session_start();
 
 // Kiểm tra xem người dùng đã đăng nhập chưa
 if (!isset($_SESSION['role'])) {
-    header('Location: login.php');  // Chuyển hướng về trang đăng nhập nếu chưa đăng nhập
+    header('Location: ../html/login_register/login.php');  // Chuyển hướng về trang đăng nhập nếu chưa đăng nhập
     exit();
 }
 
@@ -36,14 +36,14 @@ if ($_SESSION['role'] != 'user') {
         </div>
         <nav class="nav-links">
             <a href="../html/taosk.html" class = "effect">Tạo sự kiện</a>
-            <a href="#">Vé đã mua</a>
+            <a href="../html/show_ticket.php">Vé của tôi</a>
             <div class="account">
                 <a href="#">Tài khoản</a>
                 <div class="dropdown">
-                    <a href="#">Vé đã mua</a>
-                    <a href="#">Sự kiện của tôi</a>
+                    <a href="../html/show_ticket.php">Vé của tôi</a>
+                    <a href="../html/sk_cuatoi.php">Sự kiện của tôi</a>
                     <a href="#">Thông tin tài khoản</a>
-                    <a href="logout.php">Đăng xuất</a>
+                    <a href="../html/login_register/logout.php">Đăng xuất</a>
                 </div>
             </div>
         </nav>
@@ -96,7 +96,7 @@ if ($_SESSION['role'] != 'user') {
           <h2 class="section-title">Sự kiện sắp diễn ra</h2>
           <div class="events-grid-wrapper">
             <div class="events-grid">
-      
+            
               <!-- Sự kiện 1 -->
               <div class="event-card">
                 <div class="event-image">
